@@ -1,0 +1,49 @@
+[user]
+	name = Colin P. Schimmelfing
+	email = colinschimmelfing@gmail.com
+[alias]
+    co = checkout
+    st = status
+    ci = commit
+    cp = cherry-pick
+    br = branch
+    desc = describe
+    sh = show
+    df = diff
+    p = add -p
+    ri = rebase -i
+    mkmodule = !sh -c 'git checkout master && git checkout -b "modules/$0" && git rm -rf * && git update-ref -d `git rev-parse --symbolic-full-name HEAD` && mkdir -p manifests && touch manifests/init.pp && git add manifests/init.pp && git commit -m \"initial commit - branch modules/$0\" && git push origin modules/$0'
+[color]
+    diff = auto
+    branch = auto
+    status = auto
+    whitespace = red reverse
+[color "branch"]
+    remote = yellow
+    local = cyan
+    current = green
+[color "diff"]
+    commit = bold
+    meta = red
+    frag = magenta
+    old = yellow
+    new = cyan
+    whitespace = red reverse
+[color "status"]
+    header = cyan
+    added = green
+    changed = yellow
+[core]
+    excludesfile = /home/cschimmelfing/.gitignore
+[apply]
+    # choices are <nowarn|warn|fix|error|error-all>
+    whitespace = error
+[push]
+    default = matching
+[merge]
+    # Using {{git merge-tool}} during a conflict will open this program with each set of conflicting files.
+    #   I like to use meld, a graphical diff viewer and merge tool
+        #   Other options include sdiff, vimdiff, etc.
+    tool = meld[user]
+[mergetool]
+	keepBackup = true
