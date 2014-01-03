@@ -1,7 +1,8 @@
-alias ls='ls -a'
+export LS_COLORS=ExFxCxDxBxegedabagacad
 
+# check syntax
+alias pycheck='python -m py_compile'
 alias pys='python -m SimpleHTTPServer'
 alias vi='vim'
 
-alias cdwc='cd ~/working_code'
-alias cdws='cd ~/working_scratch'
+alias gist='git status'

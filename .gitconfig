@@ -3,7 +3,7 @@
 	email = colinschimmelfing@gmail.com
 [alias]
     co = checkout
-    st = status
+    st = status -sb
     ci = commit
     cp = cherry-pick
     br = branch
@@ -18,6 +18,7 @@
     branch = auto
     status = auto
     whitespace = red reverse
+	ui = 1
 [color "branch"]
     remote = yellow
     local = cyan
@@ -34,10 +35,10 @@
     added = green
     changed = yellow
 [core]
-    excludesfile = /home/cschimmelfing/.gitignore
+    excludesfile = /Users/cschimmelfing/.gitignore
 [apply]
     # choices are <nowarn|warn|fix|error|error-all>
-    whitespace = error
+    whitespace = fix
 [push]
     default = matching
 [merge]
@@ -47,3 +48,5 @@
     tool = meld[user]
 [mergetool]
 	keepBackup = true
+[help]
+	autocorrect = 20
