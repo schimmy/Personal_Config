@@ -1,3 +1,5 @@
 This contains some of the configs I find useful.
 Unfortunately, there are some duplications- I should
 properly separate out .bash_profile and .bashrc correctly
+
+For vim, you need to install pathogen a la: http://tammersaleh.com/posts/the-modern-vim-config-with-pathogen/
