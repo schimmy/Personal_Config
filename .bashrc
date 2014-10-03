@@ -3,6 +3,15 @@ export LS_COLORS=ExFxCxDxBxegedabagacad
 # check syntax
 alias pycheck='python -m py_compile'
 alias pys='python -m SimpleHTTPServer'
+alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
+alias urldecode='python -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])"'
+alias gm='gfms -a -p 8070'
 alias vi='vim'
 
-alias gist='git status'
+alias gs='git status'
+alias gp='git pull'
+
+alias cdwc='cd ~/code'
+
+alias nmgrep="grep --exclude-dir=node_modules --exclude-dir=ps_big --exclude-dir=.git --exclude '*.csv' --exclude '*.less' --exclude '*.css' -r"
+alias killssh="ps -ef | grep 'ssh -f' | awk '{print $2}' | xargs kill"
