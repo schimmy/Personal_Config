@@ -15,3 +15,27 @@ alias cdwc='cd ~/code'
 
 alias nmgrep="grep --exclude-dir=node_modules --exclude-dir=ps_big --exclude-dir=.git --exclude '*.csv' --exclude '*.less' --exclude '*.css' -r"
 alias killssh="ps -ef | grep 'ssh -f' | awk '{print $2}' | xargs kill"
+
+alias deploytime='cd ~/code/fabulaws && git pull && workon ops'
+clone-go() {
+  if [[ -e ~/code/$1 ]]; then
+    echo "link exists, cowardly failing to clone"
+  else
+    # probably won't exist
+    rm -rf $GOPATH/src/github.com/Clever/$1
+    git clone git@github.com:Clever/$1.git $GOPATH/src/github.com/Clever/$1
+    gvm use 1.3
+    ln -s $GOPATH/src/github.com/Clever/$1 ~/code/$1
+    gvm use 1.4
+    ln -s ~/code/$1 $GOPATH/src/github.com/Clever/$1
+  fi
+}
+smush() {
+  msg=`git log --format=%B -n 1 HEAD`
+  git reset --soft HEAD~1
+  git commit -m $msg
+}
+
+clear-keygen() {
+ fab instances:$1 | grep vpc | awk '{print $9}' | xargs -IX ssh-keygen -R X
+}
